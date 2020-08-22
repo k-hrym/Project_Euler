@@ -5,11 +5,21 @@
 
 require 'prime'
 
- # aからbまでの整数のそれぞれの約数を配列で返す。
+ # aからbまでの整数の最小公倍数を求める
 def multiple(a,b)
+  # 整数それぞれを素因数分解する
   divisors = (a..b).to_a.map{|num| Prime.prime_division(num) }
+  # 素因数分解したものを素数でグルーピング。最大値だけ残して掛け算。
   divisors.flatten.each_slice(2).to_a.group_by{|e| e[0]}.values.map{|val| val.max}.map{|a,b| a**b}.inject(:*)
 end
 
 p multiple(1,20)
 
+
+
+# これでいけちゃうじゃん
+def simpler_multiple(a,b)
+  [*a..b].inject(:lcm)
+end
+
+p simpler_multiple(1,20)
