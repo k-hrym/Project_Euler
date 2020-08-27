@@ -29,6 +29,9 @@ DATA
 # 行ごとに分割して多重配列に変換
 nest_num = number.split("\n").map{ |a| a.split("\s").map{|a| a.to_i } }
 
+# 時間計測開始
+start = Time.now
+
 # 最大の積
 max_inj = 0
 
@@ -85,7 +88,10 @@ while x+3 < nest_num[x].size
 end
 
 p max_inj
+p "処理時間:#{Time.now - start}s"
 
+# 時間計測開始
+start = Time.now
 
 # 最大の積
 max_inj = 0
@@ -123,6 +129,5 @@ while x < nest_num.size
   x += 1
 end
 
-
-
-
+p max_inj
+p "処理時間:#{Time.now - start}s"
