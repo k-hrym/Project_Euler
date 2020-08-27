@@ -86,3 +86,43 @@ end
 
 p max_inj
 
+
+# 最大の積
+max_inj = 0
+
+x = 0
+while x < nest_num.size
+  y = 0
+  while y < nest_num.size
+    # 縦
+    if x+3 < nest_num.size && y < nest_num[0].size
+      if max_inj < (0..3).map{|n| nest_num[x+n][y]}.inject(:*)
+        max_inj = (0..3).map{|n| nest_num[x+n][y]}.inject(:*)
+      end
+    end
+    # 横
+    if x < nest_num.size && y+3 < nest_num[0].size
+      if max_inj < (0..3).map{|n| nest_num[x][y+n]}.inject(:*)
+        max_inj = (0..3).map{|n| nest_num[x][y+n]}.inject(:*)
+      end
+    end
+    # 左斜め
+    if x+3 < nest_num.size && y+3 < nest_num[0].size
+      if max_inj < (0..3).map{|n| nest_num[x+n][y+n]}.inject(:*)
+        max_inj = (0..3).map{|n| nest_num[x+n][y+n]}.inject(:*)
+      end
+    end
+    # 右斜め
+    if x < nest_num.size-3 && y < nest_num[0].size-3
+      if max_inj < (0..3).map{|n| nest_num[x+n][y-n]}.inject(:*)
+        max_inj = (0..3).map{|n| nest_num[x+n][y-n]}.inject(:*)
+      end
+    end
+    y += 1
+  end
+  x += 1
+end
+
+
+
+
