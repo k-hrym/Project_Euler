@@ -32,3 +32,5 @@ to_max = [*1..28123]
   end
 end
 
+p to_max.sum
+
