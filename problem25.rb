@@ -20,3 +20,16 @@
 
 # 1000桁になる最初の項の番号を答えよ.
 
+num1 = 1
+num2 = 1
+
+3.upto(1/0.0) do |i|
+  n = num1 + num2
+  if n >= 10**999
+    p i
+    break
+  end
+  num1 = num2
+  num2 = n
+end
+
