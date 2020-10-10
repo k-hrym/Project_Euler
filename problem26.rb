@@ -15,3 +15,29 @@
 
 # d < 1000 なる 1/d の中で小数部の循環節が最も長くなるような d を求めよ.
 
+def unit_fraction(num)
+  a = 1
+  arr = []
+  while !arr.include?(a % num)
+    if a % num == 0
+      return 0
+    end
+    arr << a % num
+    a *= 10
+  end
+  delete = arr.index(a % num)
+  arr.shift(delete)
+  arr.size
+end
+
+max = 0
+ans = 0
+2.upto(999) do |i|
+  if max <= unit_fraction(i)
+    max = unit_fraction(i)
+    ans = i
+  end
+end
+
+p ans
+
