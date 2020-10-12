@@ -22,20 +22,24 @@ maxB = 0
 
 a = -999
 while a < 1000
-  b = -1000
-  while b <= 1000
-    count = 0
-    n = 0
-    while n <= (a < 0 ? -a : a) && (n ** 2 + a*n + b).prime?
-      count += 1
-      n += 1
+  if a % 2 == 1
+    b = -1000
+    while b <= 1000
+      if b.prime? && b % 2 == 1
+        count = 0
+        n = 0
+        while n <= (a < 0 ? -a : a) && (n ** 2 + a*n + b).prime?
+          count += 1
+          n += 1
+        end
+        if count > max
+          max = count
+          maxA = a
+          maxB = b
+        end
+      end
+      b += 1
     end
-    if count > max
-      max = count
-      maxA = a
-      maxB = b
-    end
-    b += 1
   end
   a += 1
 end
