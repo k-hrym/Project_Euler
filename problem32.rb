@@ -9,7 +9,14 @@
 
 # HINT: いくつかの積は, 1通り以上の掛けられる数/掛ける数/積の組み合わせを持つが1回だけ数え上げよ.
 
-
-
-def pandegital(num)
+sum = 0
+[1,2,3,4,5,6,7,8,9].permutation.to_a.each do |combi|
+  if combi[0..1].join.to_i * combi[2..4].join.to_i == combi[5..8].join.to_i
+    sum += combi[5..8].join.to_i
+  elsif combi[0].to_i * combi[1..4].join.to_i == combi[5..8].join.to_i
+    sum += combi[5..8].join.to_i
+  end
 end
+
+p sum
+
