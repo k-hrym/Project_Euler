@@ -10,13 +10,16 @@
 # HINT: いくつかの積は, 1通り以上の掛けられる数/掛ける数/積の組み合わせを持つが1回だけ数え上げよ.
 
 sum = 0
-[1,2,3,4,5,6,7,8,9].permutation.to_a.each do |combi|
-  if combi[0..1].join.to_i * combi[2..4].join.to_i == combi[5..8].join.to_i
-    sum += combi[5..8].join.to_i
-  elsif combi[0].to_i * combi[1..4].join.to_i == combi[5..8].join.to_i
-    sum += combi[5..8].join.to_i
+1111.upto(9999) do |num|
+  1.upto(99) do |one|
+    next if num % one != 0
+    arr = [num, one, num / one].join.chars
+    arr.delete("0")
+    if arr.uniq.size == 9
+      sum += num
+      break
+    end
   end
 end
 
 p sum
-
