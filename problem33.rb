@@ -25,7 +25,6 @@ for i in 10..99
     end
     nums = nums.map(&:to_i)
     if Rational(nums[0],nums[1]) == Rational(i,j)
-      p Rational(i, j)
       r *= Rational(i,j)
     end
   end
