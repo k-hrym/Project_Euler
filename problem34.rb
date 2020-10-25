@@ -22,8 +22,8 @@ answer = 0
   end
   if sum == n_copy
     answer += sum
-    p sum
   end
 end
 
 p answer
+
