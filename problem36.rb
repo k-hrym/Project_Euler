@@ -23,13 +23,16 @@ end
 
 answer_sum = 0
 1.upto(999_999) do |ten_num|
-  two_num = base_from_ten_to_two(ten_num)
-  if two_num == 0
-    next
-  elsif two_num == two_num.to_s.reverse.to_i && ten_num == ten_num.to_s.reverse.to_i
-    answer_sum += ten_num
+  if ten_num == ten_num.to_s.reverse.to_i
+    two_num = base_from_ten_to_two(ten_num)
+    if two_num == 0
+      next
+    elsif two_num == two_num.to_s.reverse.to_i
+      answer_sum += ten_num
+    end
   end
 end
 
 p answer_sum
+
 
