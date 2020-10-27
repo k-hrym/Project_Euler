@@ -34,7 +34,6 @@ million_array.each do |num|
     end
   end
   if count > 0
-    p num
     answer_count += 1
   end
 end
