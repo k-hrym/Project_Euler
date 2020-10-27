@@ -6,12 +6,15 @@
 # (注: 先頭に0を含めて回文にすることは許されない.)
 
 def base_from_ten_to_two(num)
+  if num % 2 == 0
+    return 0
+  end
   two_base = []
   while num > 0
     two_base << num % 2
     num /= 2
   end
-  if two_base.first == 0 || two_base.last == 0
+  if two_base.last == 0
     return 0
   else
     return two_base.reverse.join.to_i
@@ -19,7 +22,7 @@ def base_from_ten_to_two(num)
 end
 
 answer_sum = 0
-1.upto(1_000_000) do |ten_num|
+1.upto(999_999) do |ten_num|
   two_num = base_from_ten_to_two(ten_num)
   if two_num == 0
     next
