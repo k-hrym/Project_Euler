@@ -7,3 +7,35 @@
 
 # 注: 2, 3, 5, 7を切り詰め可能な素数とは考えない.
 
+require 'prime'
+
+answer_sum = 0
+answer_count = 0
+10.upto(1.0 / 0) do |num|
+  unless num.prime?
+    next
+  end
+
+  count = 0
+  num_chars = num.to_s.chars
+  num_digit = num_chars.size
+  (num_chars.size - 1).times do
+    num_digit -= 1
+    if num_chars.last(num_digit).join.to_i.prime? && num_chars.take(num_digit).join.to_i.prime?
+      count += 1
+    else
+      break
+    end
+  end
+
+  if count == num_chars.size - 1
+    answer_sum += num
+    answer_count += 1
+  end
+
+  if answer_count == 11
+    break
+  end
+end
+
+p answer_sum
