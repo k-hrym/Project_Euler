@@ -11,10 +11,11 @@ require 'prime'
 
 answer_sum = 0
 answer_count = 0
-10.upto(1.0 / 0) do |num|
-  unless num.prime?
+Prime.each(1.0 / 0) do |num|
+  if num < 11
     next
   end
+
   del_left_num = num
   lcount = 0
   while del_left_num > 0
