@@ -12,3 +12,44 @@
 
 # 整数と (1,2,...,n) (n > 1) との連結積として得られる9桁のパンデジタル数の中で最大のものはいくつか?
 
+def pandegital?(num_s)
+  if num_s.chars.size != 9
+    return false
+  elsif num_s.chars.include?("0")
+    return false
+  elsif num_s.chars.uniq.size == 9
+    return true
+  else
+    return false
+  end
+end
+
+limit = 0
+1.upto(1.0 / 0) do |num|
+  sum = String.new
+  sum += (num * 1).to_s
+  sum += (num * 2).to_s
+  if sum.chars.size > 9
+    limit = num
+    break
+  end
+end
+
+max = 0
+2.upto(limit) do |num|
+  num_str = String.new
+  1.upto(num) do |n|
+    num_str += (num * n).to_s
+    if num_str.chars.size >= 9
+      if pandegital?(num_str)
+        if num_str.to_i > max
+          max = num_str.to_i
+        end
+      end
+      break
+    end
+  end
+end
+
+p max
+
