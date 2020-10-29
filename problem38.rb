@@ -36,15 +36,13 @@ limit = 0
 end
 
 max = 0
-2.upto(limit) do |num|
-  num_str = String.new
-  1.upto(num) do |n|
-    num_str += (num * n).to_s
-    if num_str.chars.size >= 9
-      if pandegital?(num_str)
-        if num_str.to_i > max
-          max = num_str.to_i
-        end
+2.upto(limit) do |int|
+  int_to_str = String.new
+  1.upto(int) do |n|
+    int_to_str += (int * n).to_s
+    if int_to_str.chars.size >= 9
+      if pandegital?(int_to_str) && int_to_str.to_i > max
+        max = int_to_str.to_i
       end
       break
     end
