@@ -24,21 +24,21 @@ def app_absolute_value(num)
   return int
 end
 
-def max_edge(num)
-  1.upto(1.0 / 0) do |a|
-    c_expo = a**2 * 2
-    if (a * 2) + app_absolute_value(c_expo) >= num
-      return a
-    end
-  end
-end
+# def max_edge(num)
+#   1.upto(1.0 / 0) do |a|
+#     c_expo = a**2 * 2
+#     if (a * 2) + app_absolute_value(c_expo) >= num
+#       return a
+#     end
+#   end
+# end
 
 solution_count = 0
 max_edges = 0
 
 1.upto(1000) do |edges|
   count = 0
-  1.upto(max_edge(edges)) do |a|
+  1.upto(edges / 3) do |a|
     a.upto(1.0 / 0) do |b|
       c = edges - a - b
       if c <= 0
