@@ -27,7 +27,6 @@ class Integer
 			if num.pandegi? && num > max_answer
 				max_answer = num
 			end
-			p num
 		end
 	end
 	1000000.upto(7654321) do |num|
@@ -35,7 +34,6 @@ class Integer
 			if num.pandegi? && num > max_answer
 				max_answer = num
 			end
-			p num
 		end
 	end
 	p max_answer
