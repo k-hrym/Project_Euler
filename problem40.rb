@@ -12,14 +12,32 @@ answer_product = 1
 goal = 1000000
 2.upto(1 / 0.0) do |num|
 	if dec.size >= mul_of_ten
-		answer_product *= dec.chars[mul_of_ten - dec.size - 1].to_i
-		p dec.chars[mul_of_ten - dec.size - 1].to_i
+		answer_product *= dec.chars[mul_of_ten - 1].to_i
 		mul_of_ten *= 10
-	end
-	if mul_of_ten > goal
-		break
+		if mul_of_ten > goal
+			break
+		end	
 	end
 	dec += num.to_s
 end
 
 p answer_product
+
+# 別パターン
+
+# dec = "1"
+# mul_of_ten = 1
+# answer_product = 1
+# goal = 1000000
+# 2.upto(1 / 0.0) do |num|
+# 	dec += num.to_s
+# 	if dec.size >= goal
+# 		while mul_of_ten <= goal
+# 			answer_product *= dec.chars[mul_of_ten - 1].to_i
+# 			mul_of_ten *= 10
+# 		end
+# 		break
+# 	end
+# end
+
+# p answer_product
